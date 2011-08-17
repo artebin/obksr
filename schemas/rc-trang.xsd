@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://openbox.org/3.4/rc" xmlns:rc="http://openbox.org/3.4/rc">
+  <xs:element name="openbox_config">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:resistance"/>
+        <xs:element ref="rc:focus"/>
+        <xs:element ref="rc:placement"/>
+        <xs:element ref="rc:theme"/>
+        <xs:element ref="rc:desktops"/>
+        <xs:element ref="rc:resize"/>
+        <xs:element ref="rc:margins"/>
+        <xs:element ref="rc:dock"/>
+        <xs:element ref="rc:keyboard"/>
+        <xs:element ref="rc:mouse"/>
+        <xs:element ref="rc:menu"/>
+        <xs:element ref="rc:applications"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="resistance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:strength"/>
+        <xs:element ref="rc:screen_edge_strength"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="strength" type="xs:integer"/>
+  <xs:element name="screen_edge_strength" type="xs:integer"/>
+  <xs:element name="focus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:focusNew"/>
+        <xs:element ref="rc:followMouse"/>
+        <xs:element ref="rc:focusLast"/>
+        <xs:element ref="rc:underMouse"/>
+        <xs:element ref="rc:focusDelay"/>
+        <xs:element ref="rc:raiseOnFocus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="focusNew" type="xs:NCName"/>
+  <xs:element name="followMouse" type="xs:NCName"/>
+  <xs:element name="focusLast" type="xs:NCName"/>
+  <xs:element name="underMouse" type="xs:NCName"/>
+  <xs:element name="focusDelay" type="xs:integer"/>
+  <xs:element name="raiseOnFocus" type="xs:NCName"/>
+  <xs:element name="placement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:policy"/>
+        <xs:element ref="rc:center"/>
+        <xs:element ref="rc:monitor"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="policy" type="xs:NCName"/>
+  <xs:element name="center" type="xs:NCName"/>
+  <xs:element name="monitor" type="xs:NCName"/>
+  <xs:element name="theme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:name"/>
+        <xs:element ref="rc:titleLayout"/>
+        <xs:element ref="rc:keepBorder"/>
+        <xs:element ref="rc:animateIconify"/>
+        <xs:element maxOccurs="unbounded" ref="rc:font"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="titleLayout" type="xs:NCName"/>
+  <xs:element name="keepBorder" type="xs:NCName"/>
+  <xs:element name="animateIconify" type="xs:NCName"/>
+  <xs:element name="font">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:name"/>
+        <xs:element ref="rc:size"/>
+        <xs:element ref="rc:weight"/>
+        <xs:element ref="rc:slant"/>
+      </xs:sequence>
+      <xs:attribute name="place" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="size" type="xs:integer"/>
+  <xs:element name="weight" type="xs:NCName"/>
+  <xs:element name="slant" type="xs:NCName"/>
+  <xs:element name="desktops">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:number"/>
+        <xs:element ref="rc:firstdesk"/>
+        <xs:element ref="rc:names"/>
+        <xs:element ref="rc:popupTime"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="number" type="xs:integer"/>
+  <xs:element name="firstdesk" type="xs:integer"/>
+  <xs:element name="names">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="rc:name"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="popupTime" type="xs:integer"/>
+  <xs:element name="resize">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:drawContents"/>
+        <xs:element ref="rc:popupShow"/>
+        <xs:element ref="rc:popupPosition"/>
+        <xs:element ref="rc:popupFixedPosition"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="drawContents" type="xs:NCName"/>
+  <xs:element name="popupShow" type="xs:NCName"/>
+  <xs:element name="popupPosition" type="xs:NCName"/>
+  <xs:element name="popupFixedPosition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:x"/>
+        <xs:element ref="rc:y"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="x" type="xs:integer"/>
+  <xs:element name="y" type="xs:integer"/>
+  <xs:element name="margins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:top"/>
+        <xs:element ref="rc:bottom"/>
+        <xs:element ref="rc:left"/>
+        <xs:element ref="rc:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="top" type="xs:integer"/>
+  <xs:element name="bottom" type="xs:integer"/>
+  <xs:element name="left" type="xs:integer"/>
+  <xs:element name="right" type="xs:integer"/>
+  <xs:element name="dock">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:position"/>
+        <xs:element ref="rc:floatingX"/>
+        <xs:element ref="rc:floatingY"/>
+        <xs:element ref="rc:noStrut"/>
+        <xs:element ref="rc:stacking"/>
+        <xs:element ref="rc:direction"/>
+        <xs:element ref="rc:autoHide"/>
+        <xs:element ref="rc:hideDelay"/>
+        <xs:element ref="rc:showDelay"/>
+        <xs:element ref="rc:moveButton"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="position" type="xs:NCName"/>
+  <xs:element name="floatingX" type="xs:integer"/>
+  <xs:element name="floatingY" type="xs:integer"/>
+  <xs:element name="noStrut" type="xs:NCName"/>
+  <xs:element name="stacking" type="xs:NCName"/>
+  <xs:element name="direction" type="xs:NCName"/>
+  <xs:element name="autoHide" type="xs:NCName"/>
+  <xs:element name="showDelay" type="xs:integer"/>
+  <xs:element name="moveButton" type="xs:NCName"/>
+  <xs:element name="keyboard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:chainQuitKey"/>
+        <xs:element maxOccurs="unbounded" ref="rc:keybind"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="chainQuitKey" type="xs:NCName"/>
+  <xs:element name="keybind">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:action"/>
+      </xs:sequence>
+      <xs:attribute name="key" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mouse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:dragThreshold"/>
+        <xs:element ref="rc:doubleClickTime"/>
+        <xs:element ref="rc:screenEdgeWarpTime"/>
+        <xs:element maxOccurs="unbounded" ref="rc:context"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dragThreshold" type="xs:integer"/>
+  <xs:element name="doubleClickTime" type="xs:integer"/>
+  <xs:element name="screenEdgeWarpTime" type="xs:integer"/>
+  <xs:element name="context">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="rc:mousebind"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="applications">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="hideDelay" type="xs:integer"/>
+  <xs:element name="action">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0">
+          <xs:element ref="rc:menu"/>
+          <xs:element ref="rc:execute"/>
+          <xs:sequence>
+            <xs:element ref="rc:dialog"/>
+            <xs:element ref="rc:wrap"/>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element ref="rc:startupnotify"/>
+            <xs:element ref="rc:command"/>
+          </xs:sequence>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="rc:panels"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="rc:desktop"/>
+          <xs:element ref="rc:edge"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="execute" type="xs:string"/>
+  <xs:element name="dialog" type="xs:NCName"/>
+  <xs:element name="wrap" type="xs:NCName"/>
+  <xs:element name="startupnotify">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rc:enabled"/>
+        <xs:element ref="rc:name"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="enabled" type="xs:boolean"/>
+  <xs:element name="command" type="xs:string"/>
+  <xs:element name="panels" type="xs:NCName"/>
+  <xs:element name="desktop" type="xs:NMTOKEN"/>
+  <xs:element name="edge" type="xs:NCName"/>
+  <xs:element name="mousebind">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="rc:action"/>
+        <xs:element ref="rc:mousebind"/>
+      </xs:choice>
+      <xs:attribute name="action" use="required" type="xs:NCName"/>
+      <xs:attribute name="button" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="menu">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="rc:hideDelay"/>
+        <xs:element ref="rc:applicationIcons"/>
+        <xs:element ref="rc:file"/>
+        <xs:element ref="rc:manageDesktops"/>
+        <xs:element ref="rc:middle"/>
+        <xs:element ref="rc:submenuShowDelay"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="applicationIcons" type="xs:NCName"/>
+  <xs:element name="file" type="xs:string"/>
+  <xs:element name="manageDesktops" type="xs:NCName"/>
+  <xs:element name="middle" type="xs:NCName"/>
+  <xs:element name="submenuShowDelay" type="xs:integer"/>
+</xs:schema>
