@@ -7,4 +7,5 @@ Website:	http://njames.trevize.net
 
 Openbox http://openbox.org/ is a wonderful window manager that can be easily integrated and used combined with the GNOME or the KDE desktops. It is a highly configurable window manager.
 This short project includes java codes for parsing the openbox main configuration file (~/.config/openbox/rc.xml), for extracting the list of the keyboard shortcuts and for producing a file that contains a textual representation of these shortcuts.
-By the next, run the shell script obksr.sh that uses libnotify-bin (actually the notify-send command) to show a notification that contains the keyboard shortcuts from the openbox configuration file. You can also add a keyboard shortcut for running this script.
+By the next, run the shell script obksr.sh that uses libnotify-bin (actually the notify-send command) to show a notification that contains the keyboard shortcuts from the openbox configuration file.
+Then add a keyboard shortcut for running this script in the Openbox configuration file rc.xml .
