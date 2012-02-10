@@ -9,3 +9,5 @@ Openbox http://openbox.org/ is a wonderful window manager that can be easily int
 This short project includes java codes for parsing the openbox main configuration file (~/.config/openbox/rc.xml), for extracting the list of the keyboard shortcuts and for producing a file that contains a textual representation of these shortcuts.
 By the next, run the shell script obksr.sh that uses libnotify-bin (actually the notify-send command) to show a notification that contains the keyboard shortcuts from the openbox configuration file.
 Then add a keyboard shortcut for running this script in the Openbox configuration file rc.xml .
+
+Note that this project is using an XML binding of the Openbox configuration files. For now 2012.02.10, only http://openbox.org/3.4/rc is taken in account, so only Openbox 3.4.  
